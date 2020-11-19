@@ -8,7 +8,6 @@ ARifle::ARifle()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -25,7 +24,7 @@ void ARifle::Tick(float DeltaTime)
 
 }
 
-void ARifle::Fire_FFF()
+void ARifle::Fire()
 {
 	UE_LOG(LogTemp, Warning, TEXT("FIRING"));
 }

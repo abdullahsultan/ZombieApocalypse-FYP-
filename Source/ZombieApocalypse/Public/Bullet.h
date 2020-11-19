@@ -4,7 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/SphereComponent.h"
 #include "Bullet.generated.h"
+
+class USphereComponent;
+class UProjectileMovementComponent;
 
 UCLASS()
 class ZOMBIEAPOCALYPSE_API ABullet : public AActor
@@ -22,5 +26,15 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
+		USphereComponent* CollisionComponent;
+
+	// Projectile movement component.
+	UPROPERTY(VisibleAnywhere, Category = Movement)
+		UProjectileMovementComponent* ProjectileMovementComponent;
+
+	// Function that initializes the projectile's velocity in the shoot direction.
+	void FireInDirection(const FVector& ShootDirection);
 
 };

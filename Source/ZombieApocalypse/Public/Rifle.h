@@ -24,6 +24,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BluePrintCallable)
-		void Fire_FFF();
+		void Fire();
 
 };
