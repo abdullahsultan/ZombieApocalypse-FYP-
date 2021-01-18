@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Bullet.h"
 #include "Rifle.generated.h"
 
 UCLASS()
@@ -23,7 +24,21 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BluePrintCallable)
-		void Fire();
+	UFUNCTION(BlueprintCallable)
+	void SetRifleMesh(USkeletalMeshComponent *Mesh);
+
+	USkeletalMeshComponent* GunMesh;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		TSubclassOf<ABullet> Bullet;
+
+	UFUNCTION(BlueprintCallable)
+		void Fire(FVector FireDirection, bool IsRightClick);
+
+
+	FVector SocketLocation;
+	FRotator SocketRotation;
 
 };
+
+
