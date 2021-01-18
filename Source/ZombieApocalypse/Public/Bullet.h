@@ -27,14 +27,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
-		USphereComponent* CollisionComponent;
 
 	// Projectile movement component.
-	UPROPERTY(VisibleAnywhere, Category = Movement)
-		UProjectileMovementComponent* ProjectileMovementComponent;
+		UProjectileMovementComponent* ProjectileMovementComponent = nullptr;
+
 
 	// Function that initializes the projectile's velocity in the shoot direction.
-	void FireInDirection(const FVector& ShootDirection);
+	void FireInDirection();
 
 };
